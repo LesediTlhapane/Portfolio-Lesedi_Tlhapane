@@ -1,9 +1,22 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { Code2, GraduationCap, Briefcase, Mail, Github, Linkedin, Target } from "lucide-react";
 
 const Index = () => {
+  const [showAccessDialog, setShowAccessDialog] = useState(false);
+
   const skills = [
     "Flutter", "React", "Dart", "Java", "Python", 
     "C#", "ASP.NET Core", "CSS", "HTML", "SQL", 
@@ -87,7 +100,11 @@ const Index = () => {
                 <Mail className="mr-2 h-4 w-4" />
                 Get In Touch
               </Button>
-              <Button variant="outline" className="border-primary/30 hover:bg-primary/10">
+              <Button 
+                variant="outline" 
+                className="border-primary/30 hover:bg-primary/10"
+                onClick={() => setShowAccessDialog(true)}
+              >
                 <Github className="mr-2 h-4 w-4" />
                 View Projects
               </Button>
@@ -227,6 +244,22 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      <AlertDialog open={showAccessDialog} onOpenChange={setShowAccessDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Access Required</AlertDialogTitle>
+            <AlertDialogDescription>
+              To view the full project repository and source code, you'll need to grant access. 
+              Would you like to proceed with granting access to view these projects?
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction>Grant Access</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
