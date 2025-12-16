@@ -88,7 +88,7 @@ const Index = () => {
   };
 
   const handleViewProjects = () => {
-    window.open("https://github.com/Lesedi-coder07", "_blank");
+    window.open("https://github.com/LesediTlhapane", "_blank");
   };
 
   return (
@@ -306,7 +306,7 @@ const Index = () => {
                 variant="outline" 
                 size="icon" 
                 className="border-primary/30 hover:bg-primary/10 hover:border-primary"
-                onClick={() => window.open("https://github.com/Lesedi-coder07", "_blank")}
+                onClick={() => window.open("https://github.com/LesediTlhapane", "_blank")}
               >
                 <Github className="h-5 w-5" />
               </Button>
