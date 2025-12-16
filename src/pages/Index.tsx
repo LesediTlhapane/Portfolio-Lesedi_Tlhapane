@@ -12,10 +12,10 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import { Code2, GraduationCap, Briefcase, Mail, Github, Linkedin, Target } from "lucide-react";
+import { Code2, GraduationCap, Briefcase, Mail, Github, Linkedin, Target, User } from "lucide-react";
 
 const Index = () => {
-  const [showAccessDialog, setShowAccessDialog] = useState(false);
+  const [showContactDialog, setShowContactDialog] = useState(false);
 
   const skills = [
     "Flutter", "React", "Dart", "Java", "Python", 
@@ -77,6 +77,20 @@ const Index = () => {
     }
   ];
 
+  const handleEmailClick = () => {
+    window.location.href = "mailto:leseditllhapane5@gmail.com";
+    setShowContactDialog(false);
+  };
+
+  const handleLinkedInClick = () => {
+    window.open("https://www.linkedin.com/in/lesedi-tlhapane-0309b826b/", "_blank");
+    setShowContactDialog(false);
+  };
+
+  const handleViewProjects = () => {
+    window.open("https://github.com/Lesedi-coder07", "_blank");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-dark">
       {/* Hero Section */}
@@ -90,26 +104,75 @@ const Index = () => {
               </Badge>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              Building Digital Experiences
+              Lesedi Tlhapane
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
               Transforming ideas into elegant, functional solutions across web and mobile platforms
             </p>
             <div className="flex gap-4 justify-center pt-4">
-              <Button className="bg-gradient-primary hover:shadow-green transition-all duration-300">
+              <Button 
+                className="bg-gradient-primary hover:shadow-green transition-all duration-300"
+                onClick={() => setShowContactDialog(true)}
+              >
                 <Mail className="mr-2 h-4 w-4" />
                 Get In Touch
               </Button>
               <Button 
                 variant="outline" 
                 className="border-primary/30 hover:bg-primary/10"
-                onClick={() => setShowAccessDialog(true)}
+                onClick={handleViewProjects}
               >
                 <Github className="mr-2 h-4 w-4" />
                 View Projects
               </Button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* About Me Section */}
+      <section className="py-20 px-4 bg-secondary/30">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <User className="text-primary h-8 w-8" />
+              <h2 className="text-3xl md:text-4xl font-bold">About Me</h2>
+            </div>
+            <p className="text-muted-foreground">Who I am</p>
+          </div>
+          <Card className="bg-card border-primary/30 shadow-green">
+            <CardContent className="p-8 space-y-6">
+              <p className="text-lg text-foreground/90 leading-relaxed">
+                My name is <span className="text-primary font-semibold">Lesedi Tlhapane</span>, a passionate and driven 
+                junior software developer eager to make my mark in the technology industry. I am committed to building 
+                innovative solutions and continuously growing as a professional in the software development field.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed">
+                I am currently completing my <span className="text-primary font-semibold">Diploma in Information Technology</span> at 
+                the Central University of Technology, set to graduate by the end of this year. Additionally, I have obtained 
+                an <span className="text-primary font-semibold">NQF Level 6 qualification in Software Development</span> from 
+                WeThinkCode, where I gained extensive hands-on experience in programming, problem-solving, and collaborative 
+                project work.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed">
+                Through my studies, I've developed strong technical skills in languages such as <span className="text-primary font-semibold">Java, 
+                Python, and C#</span>, with practical experience in frameworks like <span className="text-primary font-semibold">ASP.NET Core, 
+                Flutter, and Firebase</span>. I am particularly drawn to opportunities that allow me to apply my skills to real-world 
+                projects, learn from experienced engineers, and contribute meaningfully to a team environment.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed">
+                What sets me apart is my <span className="text-primary font-semibold">dedication to continuous learning</span>, 
+                my ability to adapt quickly to new technologies, and my commitment to delivering high-quality work. I take pride 
+                in being a problem-solver and team player who thrives under challenges and always strives to improve both 
+                personally and professionally.
+              </p>
+              <p className="text-lg text-foreground/90 leading-relaxed">
+                I am actively seeking opportunities as a <span className="text-primary font-semibold">Junior Software Engineer</span> where 
+                I can contribute my skills, grow alongside a talented team, and build solutions that make a real impact. I am 
+                available for interviews and excited to discuss how I can add value to your organization.
+              </p>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
@@ -227,17 +290,32 @@ const Index = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-center md:text-left">
               <p className="text-muted-foreground">
-                © 2025 Portfolio. Built with passion and code.
+                © 2025 Lesedi Tlhapane. Built with passion and code.
               </p>
             </div>
             <div className="flex gap-4">
-              <Button variant="outline" size="icon" className="border-primary/30 hover:bg-primary/10 hover:border-primary">
+              <Button 
+                variant="outline" 
+                size="icon" 
+                className="border-primary/30 hover:bg-primary/10 hover:border-primary"
+                onClick={() => window.location.href = "mailto:leseditllhapane5@gmail.com"}
+              >
                 <Mail className="h-5 w-5" />
               </Button>
-              <Button variant="outline" size="icon" className="border-primary/30 hover:bg-primary/10 hover:border-primary">
+              <Button 
+                variant="outline" 
+                size="icon" 
+                className="border-primary/30 hover:bg-primary/10 hover:border-primary"
+                onClick={() => window.open("https://github.com/Lesedi-coder07", "_blank")}
+              >
                 <Github className="h-5 w-5" />
               </Button>
-              <Button variant="outline" size="icon" className="border-primary/30 hover:bg-primary/10 hover:border-primary">
+              <Button 
+                variant="outline" 
+                size="icon" 
+                className="border-primary/30 hover:bg-primary/10 hover:border-primary"
+                onClick={() => window.open("https://www.linkedin.com/in/lesedi-tlhapane-0309b826b/", "_blank")}
+              >
                 <Linkedin className="h-5 w-5" />
               </Button>
             </div>
@@ -245,18 +323,34 @@ const Index = () => {
         </div>
       </footer>
 
-      <AlertDialog open={showAccessDialog} onOpenChange={setShowAccessDialog}>
+      {/* Contact Dialog */}
+      <AlertDialog open={showContactDialog} onOpenChange={setShowContactDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Access Required</AlertDialogTitle>
+            <AlertDialogTitle>Get In Touch</AlertDialogTitle>
             <AlertDialogDescription>
-              To view the full project repository and source code, you'll need to grant access. 
-              Would you like to proceed with granting access to view these projects?
+              Choose your preferred method to connect with me:
             </AlertDialogDescription>
           </AlertDialogHeader>
+          <div className="flex flex-col gap-3 py-4">
+            <Button 
+              className="w-full bg-gradient-primary hover:shadow-green"
+              onClick={handleEmailClick}
+            >
+              <Mail className="mr-2 h-4 w-4" />
+              Email: leseditllhapane5@gmail.com
+            </Button>
+            <Button 
+              variant="outline"
+              className="w-full border-primary/30 hover:bg-primary/10"
+              onClick={handleLinkedInClick}
+            >
+              <Linkedin className="mr-2 h-4 w-4" />
+              LinkedIn Profile
+            </Button>
+          </div>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>Grant Access</AlertDialogAction>
+            <AlertDialogCancel>Close</AlertDialogCancel>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
